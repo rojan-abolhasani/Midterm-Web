@@ -56,6 +56,10 @@ function process(user, update) {
                     alertObj.style.opacity = 1
                 }
             }).then((data) => {
+                if (data == undefined)
+                {
+                    return
+                }
                 // save data to local storage (key:user, value: a JSON string)
                 localStorage.setItem(user, JSON.stringify(data))
                 // use the update function to show the data on the website   
