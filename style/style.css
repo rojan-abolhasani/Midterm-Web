@@ -1,0 +1,195 @@
+/*styling the body*/
+body {
+	background-image: url("https://wallpaperaccess.com/full/3414990.jpg");
+	/*setting the background image to an octcat background*/
+	background-color: white;
+	background-size: cover;
+	/*image covers the whole background*/
+	align-items: center;
+	height: 100vh;
+	/*100% of the viewport height*/
+	/*set margin and padding to 0*/
+	padding: 0px;
+	margin: 0px;
+	display: flex;
+	/*flexible box*/
+	justify-content: center;
+	/*aligning the flexible's container's items*/
+	font-family: sans-serif;
+	/*specifying a font for the txt*/
+}
+
+/*This part is only displayed when facing an Error*/
+.alert {
+	/*setting up the position and padding of the warning box*/
+	position: absolute;
+	top: 60px;
+	padding: 20px 50px;
+	background-color: rgb(255, 135, 135);
+	/*warning background color*/
+	color: white;
+	/*the initial opacity is 0 so that it can't be seen. when an error occurs, it will be changed to 1*/
+	opacity: 0;
+	transition: opacity 0.4s ease-in;
+	/*defining the radius of the element's corners and using a box shadow*/
+	border-radius: 12px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+/*Text that is shown when an Error occurs*/
+.alert h5 {
+	font-size: 17px;
+	color: white;
+}
+
+/*This cover is used to reduce the transparency of the background image*/
+.lightcover {
+	/*set the position to absolute and the top, bottom, left, and right properties*/
+	position: absolute;
+	top: 0;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	/*reducing the priority by setting the z-index to a negative number*/
+	z-index: -1;
+	background-color: rgba(255, 255, 255, 0.347);
+}
+
+/*setting the properties of the h5 tags*/
+h5 {
+	margin: 0px;
+	padding: 0px;
+	color: gray;
+}
+
+/*setting the properties of the h4 tag*/
+h4 {
+	margin: 0px;
+	padding: 0px;
+}
+
+/*the container div contains both basic divs*/
+.container {
+	/*width of the container should be 60% relatively*/
+	width: 60%;
+	/*using a flex box and setting up the direction to row (so the boxes will be shown in the same row)*/
+	display: flex;
+	flex-direction: row;
+	/*all the items will have the same height as the one with the biggest height*/
+	align-items: stretch;
+	justify-content: center;
+}
+
+/*setting the properties of direct children of the container*/
+.container>div {
+	padding: 30px;
+	margin-left: 30px;
+	background-color: white;
+	border-radius: 12px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+}
+
+/*profile header consists the information and the profile picture,
+a flexible box is used (with the direction set to row)*/
+.profileHeader {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 30px;
+}
+
+/*setiing the image properties*/
+.imageContainer {
+	width: 120px;
+	height: 120px;
+	background-color: gray;
+	/*changing the image to circle*/
+	border-radius: 50%;
+	/*not show the overflow of the image*/
+	overflow: hidden;
+
+}
+
+/*name, blog, and location*/
+.information {
+	display: flex;
+	flex-direction: column;
+	/*the items will be shown in a column*/
+	justify-content: center;
+	margin-left: 30px;
+	text-align: center;
+}
+
+/*set margin-bottom for all the children of information*/
+.information>* {
+	margin-bottom: 5px;
+}
+
+/*properties of the profile image*/
+.Profile img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	/*filling the element's entire content box*/
+}
+
+/*bio's color*/
+.profileBody h5 {
+	color: rgb(30, 30, 30);
+}
+
+/*a flexible box is defined for the Username container and the direction set is set to column*/
+.Username {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/*setting the fieldset's properties such as display, padding and border*/
+.Username fieldset {
+	padding: 0px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: none;
+}
+
+/*the label properties*/
+.Username label {
+	align-self: flex-start;
+	font-family: sans-serif;
+	/*label's fomt*/
+	font-size: 12px;
+	color: rgb(69, 69, 69);
+	padding-left: 4px;
+	/*"username will not be too far to the left*/
+}
+
+/*specifying the properties of the input text that is going to be written in the text box*/
+.Username input {
+	margin-top: 5px;
+	height: 30px;
+	border: none;
+	background-color: rgba(177, 177, 177, 0.377);
+	border-radius: 8px;
+	padding-left: 5px;
+	font-size: 12px;
+	color: rgb(46, 46, 46);
+}
+
+/*specifying the properties of the submit button*/
+.submit {
+	width: 99%;
+	height: 30px;
+	border-radius: 8px;
+	text-align: center;
+	color: whilte;
+	background-color: rgb(255, 159, 159);
+	border: none;
+	color: white;
+	cursor: pointer;
+}
