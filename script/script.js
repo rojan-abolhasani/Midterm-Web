@@ -9,8 +9,10 @@ const bio = document.getElementById("bioID")
 const alertObj = document.getElementById("alert")
 const alert_text = document.getElementById("alertText")
 
+localStorage.clear()
+
 API_KEY = ""
-API_ENDPOINT = "https://api.github.com/users/"
+API_ENDPOINT = "https://api.gisadasdsadadasdasdasdsadsathub.com/users/"
 
 // this function is used to update the Profile info according to the request response
 function update(data) {
@@ -46,29 +48,33 @@ function process(user, update) {
                     throw new Error("Failed to fetch the data : ${response.status}")
                 }*/
 
-                if (res.ok)  // the request has succeeded
+                if (res.status == 200)  // the request has succeeded
                 {
                     return res.json()   //return the response in json format
                 }
-                else   // username not found
+                else if (res.status == 404)   // username not found
                 {
-                    alert_text.innerHTML = "Username not Found"
-                    alertObj.style.opacity = 1
+                    return Promise.reject(404)
                 }
             }).then((data) => {
-                if (data == undefined)
-                {
-                    return
-                }
                 // save data to local storage (key:user, value: a JSON string)
                 localStorage.setItem(user, JSON.stringify(data))
+
                 // use the update function to show the data on the website   
                 update(data)
+                // network error
             })
             .catch((err) => {
-                //network error
-                alert_text.innerHTML = "Something went wrong! " + err
+                if (err == 404) {
+                    alert_text.innerHTML = "Username not Found"
+                }
+                else {
+                    alert_text.innerHTML = "Something went wrong!" + err
+                }
                 alertObj.style.opacity = 1
+                setTimeout(() => {
+                    alertObj.style.opacity = 0
+                }, 2500)
             })
     }
     // the data is already in the local storage
