@@ -9,7 +9,7 @@ const bio = document.getElementById("bioID")
 const alertObj = document.getElementById("alert")
 const alert_text = document.getElementById("alertText")
 
-localStorage.clear()
+// localStorage.clear()
 
 API_KEY = ""
 API_ENDPOINT = "https://api.github.com/users/"
